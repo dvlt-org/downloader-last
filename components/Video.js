@@ -8,13 +8,29 @@ import * as Font from "expo-font"
 const Video = ({ type }) => {
     const [paused, setPaused] = React.useState(true)
 
-    const loadFont = async () => {
-        await Font.loadAsync({
-            "inter-bold": require("../font/Inter_24pt-Bold.ttf"),
-            "inter-medium": require("../font/Inter_24pt-Medium.ttf")
-        })
+    const [fontsLoaded, setFontsLoaded] = useState(false);
+
+    // Fontlarni faqat bir marta yuklash
+    useEffect(() => {
+        const loadFont = async () => {
+            try {
+                await Font.loadAsync({
+                    "inter-bold": require("../font/Inter_24pt-Bold.ttf"),
+                    "inter-medium": require("../font/Inter_24pt-Medium.ttf")
+                });
+                setFontsLoaded(true);
+            } catch (error) {
+                console.log("Font loading error: ", error);
+                setFontsLoaded(true); // Agar fontlar yuklanmasa, keyingi renderni davom ettirish
+            }
+        };
+
+        loadFont();
+    }, []);
+
+    if (!fontsLoaded) {
+        return <View style={styles.loadingContainer}><Text>Loading...</Text></View>; // Fontlar yuklanayotganini ko'rsatish
     }
-    loadFont()
     return (
         <View style={{
             flexDirection: "row",
