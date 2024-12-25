@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { View, Text, Image, TouchableOpacity } from "react-native"
 import Icon from "react-native-vector-icons/FontAwesome"
 import Micon from "react-native-vector-icons/MaterialIcons"
@@ -8,7 +8,7 @@ import * as Font from "expo-font"
 const Video = ({ type }) => {
     const [paused, setPaused] = React.useState(true)
 
-    const [fontsLoaded, setFontsLoaded] = useState(false);
+    const [fontsLoaded, setFontsLoaded] = React.useState(false);
 
     // Fontlarni faqat bir marta yuklash
     useEffect(() => {
@@ -29,7 +29,7 @@ const Video = ({ type }) => {
     }, []);
 
     if (!fontsLoaded) {
-        return <View style={styles.loadingContainer}><Text>Loading...</Text></View>; // Fontlar yuklanayotganini ko'rsatish
+        return <View><Text>Loading...</Text></View>; // Fontlar yuklanayotganini ko'rsatish
     }
     return (
         <View style={{

@@ -3,6 +3,7 @@ import Home from "./Home.js"
 import { View, Text, TouchableOpacity } from "react-native"
 import Icon from "react-native-vector-icons/MaterialIcons"
 import * as Font from "expo-font"
+import { useEffect, useState } from "react"
 
 const DrawerNavigator = createDrawerNavigator()
 
@@ -28,7 +29,7 @@ const drawerContext = () => {
     }, []);
 
     if (!fontsLoaded) {
-        return <View style={styles.loadingContainer}><Text>Loading...</Text></View>; // Fontlar yuklanayotganini ko'rsatish
+        return <View ><Text>Loading...</Text></View>; // Fontlar yuklanayotganini ko'rsatish
     }
 
     return (

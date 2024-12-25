@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import * as Font from "expo-font"
@@ -26,7 +26,7 @@ const Downloading = () => {
     }, []);
 
     if (!fontsLoaded) {
-        return <View style={styles.loadingContainer}><Text>Loading...</Text></View>; // Fontlar yuklanayotganini ko'rsatish
+        return <View><Text>Loading...</Text></View>; // Fontlar yuklanayotganini ko'rsatish
     }
     return (
         <SafeAreaView>
