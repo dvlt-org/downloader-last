@@ -19,10 +19,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.theict.downloaderlast"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "26dc6be4-a773-4a8c-937a-77e48a238fa9"
+      }
     }
   }
 }
